@@ -2,15 +2,19 @@ from llama_cpp import Llama
 
 ERROR_NO_CONVERSATION = {"error": "No body in request"}
 
-llm = Llama(
-    model_path="./models/llama-2-7b-chat.Q2_K.gguf",
-    chat_format="llama-2"
-)
+llm = None
 
 
 def handler(event, context):
     if "conversation" not in event:
         return ERROR_NO_CONVERSATION
+
+    global llm
+
+    if llm is None:
+        llm = Llama(
+            model_path="./models/llama-2-7b-chat.Q2_K.gguf", chat_format="llama-2"
+        )
 
     temperature = 0.5
     if "temperature" in event:
