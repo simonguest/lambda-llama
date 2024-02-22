@@ -1,12 +1,10 @@
-import sys
 from llama_cpp import Llama
 
 ERROR_NO_CONVERSATION = {"error": "No body in request"}
 
 llm = Llama(
-    model_path="./models/llama-2-7b-chat.Q4_K_M.gguf",
-    chat_format="llama-2",
-    n_ctx=16384,
+    model_path="./models/llama-2-7b-chat.Q2_K.gguf",
+    chat_format="llama-2"
 )
 
 

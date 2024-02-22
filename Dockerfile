@@ -10,7 +10,7 @@ ARG FUNCTION_DIR
 RUN mkdir -p ${FUNCTION_DIR}
 COPY lambda_function.py ${FUNCTION_DIR}
 RUN mkdir -p ${FUNCTION_DIR}/models
-COPY models/llama-2-7b-chat.Q4_K_M.gguf ${FUNCTION_DIR}/models
+COPY models/llama-2-7b-chat.Q2_K.gguf ${FUNCTION_DIR}/models
 
 # Install the function's dependencies
 RUN pip install \
